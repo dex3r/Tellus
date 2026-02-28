@@ -22,3 +22,10 @@ jobs:
 
       - name: Build with Gradle
         run: chmod +x ./gradlew && ./gradlew build
+
+      - name: Upload mod artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tellus-mod-artifacts
+          path: build/libs/*.jar
